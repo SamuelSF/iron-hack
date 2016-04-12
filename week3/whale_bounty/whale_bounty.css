@@ -1,0 +1,12 @@
+body {
+font-family: 'Roboto', sans-serif;
+background-color: #F5F5F5;
+}
+
+.big_row {
+    background-color: white;
+}
+
+.main_container {
+    width: 50%;
+}
