@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome To The Todo List</title>
+</head>
+<body>
+  <p>
+      <h3>
+          Welcome To The Todo List
+      </h3>
+  </p>
+  <p>
+      <ol>
+          <% @the_tasks.each do |task| %>
+              <% if task.complete? %>
+                <li><form action='/delete_task' method='POST'>
+                  <%="#{task.content}"%>
+                  <button type='submit' name='delete' value='<%=task.id%>'>Delete</button>
+                </form></li>
+              <% else %>
+                <li> <form action='/complete_task' method='POST'>
+                  <%="#{task.content}"%>
+                  <button type='submit' name='complete' value='<%=task.id%>'>Complete</button>
+                </form>
+                </li>
+              <% end %>
+         <% end %>
+      </ol>
+  </p>
+  <p>
+      <a href='/new_task'>Add a new task to the list!</a>
+  </p>
+</body>
+</html>

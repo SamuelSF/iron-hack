@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style type="text/css">
+            img {
+                height: auto;
+                width: 33%;
+            }
+        </style>
+        <title>Movie Lovers - Quiz</title>
+    </head>
+    <body>
+        <h1><%= @question %></h1>
+        <%@movies.each do |movie|%>
+            <% if @correct_answers.include?(movie)%>
+                <img src="<%= movie.poster %>" onclick='yay()'>
+            <% else %>
+                <img src="<%= movie.poster %>" onclick='nay()'>
+            <% end %>
+        <% end %>
+        <h1><a href='/'>Play Again</a></h1>
+    </body>
+    <script type="text/javascript">
+    function yay(){
+        alert("That is correct.")
+    }
+
+    function nay(){
+        alert("Sorry, try again.")
+    }
+    </script>
+</html>

@@ -1,0 +1,28 @@
+code{
+    background: #2db34a;
+    border-radius: 6px;
+    color: #fff;
+    display: block;
+    padding: 24px 15px;
+    text-align: center;
+}
+
+section{
+    /*position: relative;
+    top: 200px;
+    left: -200px;*/
+    margin: 0 1.5% 24px 1.5%;
+}
+aside,
+header,
+footer{
+    margin: 0 1.5% 24px 1.5%;
+}
+
+.pug{
+    float:left;
+}
+.cat{
+    float: right;
+}
+

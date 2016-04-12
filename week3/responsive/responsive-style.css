@@ -1,0 +1,27 @@
+.row {
+    width:100%;
+    display: -webkit-flex;
+    display: flex;
+    margin-left: -5px;
+    margin-right: -5px;
+
+}
+
+.column {
+    border: dashed 2px orange;
+    width: 25%;
+    padding: 5px;
+}
+
+@media only screen and ( max-width: 600px) {
+    .column {
+        width: 50%;
+    }
+
+}
+
+@media only screen and ( max-width: 420px) {
+    .column {
+        width: 100%;
+    }
+}

@@ -1,0 +1,8 @@
+.row {
+    border: 2px dotted blue;
+}
+
+.col-sm-4,
+.col-sm-8 {
+    border: 2px dotted red;
+}

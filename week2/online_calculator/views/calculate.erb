@@ -1,0 +1,14 @@
+<!-- views/calculate.erb -->
+<!doctype html>
+<html>
+<head>
+  <title>Online Calculator</title>
+</head>
+<body>
+  <h1>Result</h1>
+  <%= "#{@first} #{@operation} #{@second} = #{@result}" %>
+  <form action="/saved" method="POST">
+      <button type="submit" name="result" value="<%= @result %>" >Save</button>
+  </form>
+</body>
+</html>
