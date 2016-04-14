@@ -397,11 +397,12 @@ describe("the JavaScript language", function(){
     });
 
     it("may define complex objects", function(){
-        var user;
-        // write the contents of the obj to make the satisfy the expectations:
+        var user = {address: {street: 'sesame'}};
+        user.friends = [{name:'triki'}];
 
-        //expect(user.address.street).toEqual('sesame');
-        //expect(user.friends[0].name).toEqual('triki');
+
+        expect(user.address.street).toEqual('sesame');
+        expect(user.friends[0].name).toEqual('triki');
     });
 
     it("has a pattern called, the Module Pattern", function(){
@@ -416,21 +417,23 @@ describe("the JavaScript language", function(){
 
         var obj = createObject();
         obj.addPoint();
-        //expect(obj.score()).toEqual();
-        //expect(typeof(obj.points)).toEqual();
+        expect(obj.score()).toEqual(1);
+        expect(typeof(obj.points)).toEqual('undefined');
     });
 
     it("may create objects also with the module pattern", function(){
-        function createObject(initialScore){
-            // write the code here
+        function createObject(initialScore, the_color){
+            var score = initialScore;
+            return {
+                incrementScoreIn: function(num){score += num;},
+                color: the_color,
+                points: function(){return score;}
+            }
         }
-
-        /*
         var obj = createObject(5, 'red');
         obj.incrementScoreIn(5);
         expect(obj.color).toEqual('red');
         expect(obj.points()).toEqual(10);
-        */
     });
 
     it("can define constructors", function(){
@@ -443,7 +446,7 @@ describe("the JavaScript language", function(){
         }
 
         var obj = new Obj();
-        //expect(obj.theName()).toBe();
+        expect(obj.theName()).toBe('bob');
     });
 
     it("may contain 'static' methods", function(){
@@ -458,7 +461,7 @@ describe("the JavaScript language", function(){
           return 22;
         };
 
-        //expect(Obj.someStaticMethod()).toBe();
+        expect(Obj.someStaticMethod()).toBe(22);
     });
 
     it("can have have methods in the prototype", function(){
@@ -470,8 +473,8 @@ describe("the JavaScript language", function(){
         };
 
         var obj = new Obj();
-        //expect(obj.theName()).toEqual();
-        //expect(obj.theName).toBe(new Obj().theName);
+        expect(obj.theName()).toEqual(undefined);
+        expect(obj.theName).toBe(new Obj().theName);
     });
 
     it("can define a factory", function(){
@@ -487,8 +490,8 @@ describe("the JavaScript language", function(){
         }
 
         var instance = obj();
-        //expect(instance.theName()).toBe();
-        //expect(instance.theName).not.toBe(obj().theName);
+        expect(instance.theName()).toBe('bob');
+        expect(instance.theName).not.toBe(obj().theName);
     });
 
     it("can create methods dynamically on an object instance", function(){
@@ -497,7 +500,7 @@ describe("the JavaScript language", function(){
         for (var i = 0; i < methodNames.length; i++){
           obj[[methodNames[i]]] = function(){ return 'it works';};
         }
-        //expect(obj.meow()).toEqual();
+        expect(obj.meow()).toEqual('it works');
     });
 
     describe("the polymorphism", function(){
