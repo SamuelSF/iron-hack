@@ -28,6 +28,12 @@ var question4 = new Question(
     1
     );
 
+var question5 = new Question(
+    "How much wood could a woodchuck chuck if a woodchuck could chuck wood?\n >",
+    "As much wood as a woodchuck could chuck if a woodchuck could chuck wood.",
+    2
+    );
+
 var bob = new User("Bob");
 var rob = new User("Rob");
 var betty = new User("Betty");
@@ -35,7 +41,7 @@ var charlotte = new User("Charlotte");
 
 var users = [bob, rob, betty, charlotte];
 
-var questions = [question1, question2, question3, question4];
+var questions = [question1, question2, question3, question4, question5];
 
 var current_question = question1;
 
