@@ -1,0 +1,15 @@
+<ul>
+    <% @my_contacts.each do |contact| %>
+        <li>
+            <%= contact.name %>
+            <ul>
+                <li>Phone number: <%= contact.phone_number %></li>
+                <li>Address: <%= contact.address %></li>
+                <li>Email Address: <%=contact.email_address %></li>
+                <li>Id is : <%=contact.id %> </li>
+            </ul>
+        </li>
+    <% end %>
+</ul>
+
+<a href="/contacts/new">Add a contact!</a>
