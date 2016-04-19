@@ -17,4 +17,9 @@ class ContactsController < ApplicationController
         my_contact.save
         redirect_to '/contacts'
     end
+
+    def show
+        @my_contact = Contact.find_by(id: params[:id])
+        render "show"
+    end
 end

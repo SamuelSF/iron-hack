@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   post '/contacts', to: 'contacts#create'
 
+  get '/contacts/:id', to: 'contacts#show'
+
+
 
 
 
