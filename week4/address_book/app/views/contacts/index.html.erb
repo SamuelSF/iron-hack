@@ -2,8 +2,24 @@
     <% @my_contacts.each do |contact| %>
         <li>
             <a href="/contacts/<%= contact.id %>"><%= contact.name %></a>
+            <% if contact.favorite %>
+                <form action="/contacts/unfavorite" method="post">
+                    <button type="submit" name ="who" value="<%=contact.id%>">Unfavorite</button>
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                </form>
+            <% else %>
+                <form action="/contacts/favorite" method="post">
+                    <button type="submit" name ="who" value="<%=contact.id%>">Favorite</button>
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                </form>
+            <% end %>
         </li>
     <% end %>
 </ul>
 
 <a href="/contacts/new">Add a contact!</a>
+<%if @favorites%>
+    <a href="/contacts">Main Contacts Page</a>
+<%else %>
+    <a href="/contacts/favorites">Favorites Page</a>
+<%end%>

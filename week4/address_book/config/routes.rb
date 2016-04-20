@@ -6,6 +6,12 @@ Rails.application.routes.draw do
 
   post '/contacts', to: 'contacts#create'
 
+  get 'contacts/favorites', to: 'contacts#favorites'
+
+  post 'contacts/favorite', to: 'contacts#favorite'
+
+  post '/contacts/unfavorite', to: 'contacts#unfavorite'
+
   get '/contacts/:id', to: 'contacts#show'
 
 
