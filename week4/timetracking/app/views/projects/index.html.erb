@@ -1,9 +1,11 @@
 <ul>
     <% @projects.each do |project| %>
-        <% if project.description %>
-            <li><%= project.name %> - <%= project.description %></li>
-        <% else %>
-            <li><%= project.name %></li>
-        <% end %>
+        <li><a href="/projects/<%=project.id%>"><%= project.name %></a>
+            <% if project.description != nil && project.description != "" %>
+                - <%= project.description %>
+            <% end %>
+        </li>
     <% end %>
 </ul>
+
+<a href="/projects/new">Make a new project!</a>
