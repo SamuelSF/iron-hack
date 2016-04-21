@@ -9,13 +9,20 @@
 bim = Project.create(name: "fruit", description: "fly")
 bam = Project.create(name: "happy" , description: "feet")
 bum = Project.create(name: "wood", description: "chuck")
-Project.create(name: "there is no", description: "spoon")
-Project.create(name: "foo", description:"bar")
-Project.create(name: "the cake is", description: "a lie")
+bleep = Project.create(name: "there is no", description: "spoon")
+bloop = Project.create(name: "foo", description:"bar")
+blop = Project.create(name: "the cake is", description: "a lie")
 Project.create(name: "some like it", description:"hot")
 Project.create(name: "Good morning", description:"Vietnam")
 Project.create(name: "The spruce", description: "moose")
 Project.create(name: "You mad?", description:"I do what I want!")
+
+bleep.created_at = DateTime.current - 1.month
+bleep.save
+bloop.created_at = DateTime.current - 1.month
+bloop.save
+blop.created_at = DateTime.current - 1.month
+blop.save
 
 entry1 = TimeEntry.create(hours: 5, minutes: 30, date: Time.now)
 entry2 = TimeEntry.create(hours: 4, minutes: 25, date: Time.now)

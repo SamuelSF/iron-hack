@@ -4,7 +4,10 @@
         <li>
             <%= entry.hours %> h
             <%= entry.minutes %> m -
-            <%= entry.date %>
+            <%= entry.date.strftime("%Y-%m-%d") %>
+            <br>
+            Id: <%= entry.id %>
+            <%= link_to('Delete', project_time_entry_path(@my_project, entry), method: :delete, data: {confirm: 'Are you sure?'}) %>
         </li>
     <% end %>
 </ul>
