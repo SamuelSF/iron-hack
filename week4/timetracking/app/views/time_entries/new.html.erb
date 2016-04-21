@@ -1,0 +1,17 @@
+<h1>Enter New Time Stamp</h1>
+
+<h2><%=@my_project.name%></h2>
+
+<%= form_for [@my_project, @my_entry] do |f| %>
+    <%= f.label :hours %>
+    <%= f.text_field :minutes %>
+    <br>
+    <%= f.label :minutes %>
+    <%= f.text_field :minutes %>
+    <br>
+    <%= f.label :date %>
+    <%= f.date_field :date %>
+    <br>
+
+    <%= f.submit "Save" %>
+<% end %>
