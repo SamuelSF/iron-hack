@@ -1,0 +1,13 @@
+<h1>Make a bid!</h1>
+
+<h2><%= @the_product.title %></h2>
+
+<%= form_for [@the_product, @new_bid] do |f| %>
+    <%= f.label :amount %>
+    <%= f.number_field :amount %>
+    <br>
+    <label for="user_email">Your Email:</labe>
+    <input type="text" name="user[email]" id="user_email">
+    <br>
+    <%= f.submit "Save" %>
+<% end %>

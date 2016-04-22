@@ -6,4 +6,6 @@
 
 Auction ends: <%= @the_product.deadline.strftime("%m/%d/%Y") %>
 <br>
+<br>
+<%= link_to('Make a bid!', new_product_bid_path(@the_product), method: :get) %>
 <%= link_to('Delete', user_product_path(@posting_user, @the_product),method: :delete, data: {confirm: "Are you sure?"}) %>
