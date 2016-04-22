@@ -3,5 +3,6 @@
     <li>User Name: <%=@current_user.name%></li>
     <li>User Email: <%=@current_user.email%></li>
     <li><a href="/users/<%= @current_user.id %>/products/new">Add Product</a></li>
+    <li><%= link_to('See My Products!', user_products_path(@current_user), method: :get) %></li>
     <li><%= link_to('Delete User', user_path(@current_user), method: :delete, data: {confirm: "Are you sure?"}) %></li>
 </ul>

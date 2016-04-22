@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
     def show
         @posting_user = User.find params[:user_id]
         @the_product = @posting_user.products.find params[:id]
+        @bids = @the_product.bids
         render 'show'
     end
 
