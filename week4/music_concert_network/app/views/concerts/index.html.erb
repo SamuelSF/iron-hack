@@ -1,0 +1,10 @@
+<h2>Concerts</h2>
+
+<ul>
+ <% @concerts.each do |concert| %>
+    <li><a href="/concerts/<%=concert.id%>"><%= concert.artist %></a>
+        on <%= concert.date.strftime("%m/%d/%Y")%> at <%= concert.venue %></li>
+<% end %>
+</ul>
+
+<span><%= link_to('Add a Concert', new_concert_path)%></span>
