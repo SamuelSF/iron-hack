@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+    def index
+        @users = User.all.order("name")
+        render 'index'
+    end
+
     def new
         @new_user = User.new
         render 'new'
@@ -11,8 +16,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-        User.destroy(params[:id])
-        redirect_to '/users/new'
+        User.destroy params[:id]
+        redirect_to '/users/'
     end
 
     def create

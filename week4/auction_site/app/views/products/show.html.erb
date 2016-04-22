@@ -1,0 +1,9 @@
+<h1><%= @the_product.title %></h1>
+
+<p>Posted by: <%= @posting_user.name %></p>
+
+<p><%= @the_product.description %></p>
+
+Auction ends: <%= @the_product.deadline.strftime("%m/%d/%Y") %>
+<br>
+<%= link_to('Delete', user_product_path(@posting_user, @the_product),method: :delete, data: {confirm: "Are you sure?"}) %>
