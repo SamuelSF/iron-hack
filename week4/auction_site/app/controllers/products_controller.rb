@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     def show
         @posting_user = User.find params[:user_id]
         @the_product = @posting_user.products.find params[:id]
-        @bids = @the_product.bids
+        @bids = @the_product.bids.order("amount DESC")
         render 'show'
     end
 
