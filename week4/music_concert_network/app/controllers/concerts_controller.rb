@@ -20,6 +20,7 @@ class ConcertsController < ApplicationController
 
     def show
         @concert = Concert.find params[:id]
+        @comments = @concert.comments
         render 'show'
     end
 

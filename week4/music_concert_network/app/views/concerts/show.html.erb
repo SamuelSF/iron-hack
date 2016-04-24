@@ -1,16 +1,34 @@
 <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
 
-    <h2 class="text-center"><%=@concert.artist%></h2>
+        <h2 class="text-center"><%=@concert.artist%></h2>
 
-    <h3 class="text-center"><%=@concert.venue%></h3>
+        <h3 class="text-center"><%=@concert.venue%></h3>
 
-    <h4 class="text-center"><%=@concert.date.strftime("%b %-d, %Y")%> at
-    <%= @concert.date.strftime("%l:%M %p")%></h4>
+        <h4 class="text-center"><%=@concert.date.strftime("%b %-d, %Y")%> at
+        <%= @concert.date.strftime("%l:%M %p")%></h4>
 
-    <p class="text-center">$<%=@concert.price%></p>
+        <p class="text-center">$<%=@concert.price%></p>
 
-    <p class="text-center"><%= @concert.description %></p>
+        <p class="text-center"><%= @concert.description %></p>
 
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-4">
+        <form action="/concerts/<%=@concert.id%>/comments" method="post">
+            <label for="comment_description">Make a comment</label>
+            <textarea name="comment[description]" id="comment_description">
+                Place your comment here!</textarea>
+            <input type="hidden" name="authenticity_token"
+            value="<%= form_authenticity_token %>">
+            <button type="submit>">Submit</button>
+        </form>
+        <ul>
+        <% @comments.each do |comment|%>
+            <li><%= comment.description %></li>
+        <% end %>
+        </ul>
     </div>
 </div>
