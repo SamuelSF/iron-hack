@@ -5,6 +5,7 @@ class Concert < ActiveRecord::Base
     validates :description, presence: true
     validates :date, presence: true
     validates :price, presence: true
+    has_many :comments
 
     def self.concerts_today
         self.where("date < ?", Date.today + 1.day).where("date >= ?", Date.today)

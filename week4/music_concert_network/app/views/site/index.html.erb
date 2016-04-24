@@ -1,0 +1,20 @@
+
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+
+ <% @concerts_today.each do |concert| %>
+    <h3 class="text-center"><a href="/concerts/<%=concert.id%>"><%= concert.artist %></a>
+        on <%= concert.date.strftime("%m/%d/%Y")%> at <%= concert.venue %></h3>
+<% end %>
+
+</div>
+<!-- side bar of concerts this month comes below -->
+<div class="col-sm-2">
+<ul>
+ <% @concerts_this_month.each do |concert| %>
+    <li><a href="/concerts/<%=concert.id%>"><%= concert.artist %></a>
+        on <%= concert.date.strftime("%m/%d/%Y")%> at <%= concert.venue %></li>
+<% end %>
+</ul>
+</div><!-- bottom column end -->
+</div> <!-- main row -->
