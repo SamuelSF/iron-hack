@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Characters</title>
+</head>
+<body>
+    <div class="container">
+        <div class"row page-header">
+            <div class="col-sm-12">
+                <h1 class="text-center">Iron Hack Characters</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 char-list">
+                <button class="js-characters-ajax btn btn-default">
+                    List Characters
+                </button>
+
+                <ul class="js-character-list"></ul>
+            </div> <!-- char-list -->
+            <div class="col-sm-6 char-form">
+                <h4>Make a new character!</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="char_name">Name:</label>
+                        <input type="text" id="char_name" class="form-control js-name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char_occupation">Occupation:</label>
+                        <input type="text" id="char_occupation" class="form-control js-occupation">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char_weapon">Weapon:</label>
+                        <input type="text" id="char_weapon" class="form-control js-weapon">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="char_debt">In Debt?</label>
+                        <input type="checkbox" class="js-debt" id="char_debt">
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-default js-create-character">Submit</button>
+                    </div>
+                </form>
+            </div> <!-- char-form -->
+        </div> <!-- main row -->
+    </div> <!-- main container -->
+</body>
+</html>
