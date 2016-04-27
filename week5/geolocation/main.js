@@ -15,7 +15,7 @@ function displayPosition(data){
     $(".js-set-latitude").text(data.coords.latitude);
     $(".js-set-longitude").text(data.coords.longitude);
     $("body").append(`<img src="
-        http://maps.googleapis.com/maps/api/staticmap?size=1000x1000&zoom=20&center=${data.coords.latitude},${data.coords.longitude}">`);
+        http://maps.googleapis.com/maps/api/staticmap?size=800x800&zoom=18&center=${data.coords.latitude},${data.coords.longitude}">`);
 }
 
 function showPositionError(error){
