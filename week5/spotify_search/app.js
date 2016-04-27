@@ -19,7 +19,7 @@ $(document).on("ready", function(){
 function handleResult(theData){
     console.log(theData);
     var theArtists = theData.artists.items;
-    var html;
+    var html = "";
     theArtists.forEach(function(artist){
         console.log(typeof(artist.name));
         html = html + `<h1>${artist.name}</h1>`;
@@ -41,12 +41,24 @@ function getAlbums(event){
 
         url: `https://api.spotify.com/v1/artists/${x}/albums`,
 
-        success: function(theData){
-            console.log(theData);
-        },
+        success: buildAlbumCallback(btn),
+
         error: function(theError){
             console.log("It failed. :( ");
             console.log(theError.responseJSON);
         }
     });
+}
+
+function buildAlbumCallback(btn){
+    return function(theData) {
+        var theAlbums = theData.items;
+        console.log(theAlbums);
+        var html= `<ul>`;
+        theAlbums.forEach( function(album) {
+            html = html + `<li>${album.name}</li>`;
+        });
+        html = html + `</ul>`;
+        $(btn).after(html);
+    };
 }
