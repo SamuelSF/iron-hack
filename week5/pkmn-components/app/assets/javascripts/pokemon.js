@@ -37,6 +37,11 @@ PokemonApp.Pokemon.prototype.render = function () {
             var imageUri = self.info.sprites[0].resource_uri;
             imageGetter(imageUri);
 
+            var descPos = self.info.descriptions.length - 2;
+            var descriptionUri = self.info.descriptions[descPos].resource_uri;
+            console.log("descriptionUri " + descriptionUri);
+            descriptionGetter(descriptionUri);
+
             $(".js-pokemon-modal").modal("show");
         }
     });
@@ -69,6 +74,18 @@ function imageGetter(imageUri){
             var imageUrl = "https://pokeapi.co" + response.image;
             console.log(imageUrl);
             $(".js-pkmn-image").attr({src: imageUrl});
+        }
+    });
+}
+
+function descriptionGetter(descriptionUri){
+    var fullDescriptionUri = "https://pokeapi.co/" + descriptionUri;
+    console.log(fullDescriptionUri)
+    $.ajax({
+        url: fullDescriptionUri,
+        success: function(response){
+            console.log(response);
+            $(".js-pkmn-desc").text(response.description);
         }
     });
 }
