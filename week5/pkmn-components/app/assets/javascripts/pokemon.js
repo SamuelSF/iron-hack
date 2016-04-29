@@ -42,6 +42,28 @@ PokemonApp.Pokemon.prototype.render = function () {
             console.log("descriptionUri " + descriptionUri);
             descriptionGetter(descriptionUri);
 
+            if (self.info.evolutions.length > 0){
+                var evolutionString = "Evolves to: ";
+                self.info.evolutions.forEach(function(evolution) {
+                    evolutionString = evolutionString + `
+                    <button class="js-evolution-btn" data-evolutionuri="${evolution.resource_uri}">
+                        ${evolution.to}
+                    </button> `
+                });
+                $(".js-btn-wrapper").html(evolutionString);
+                $(".js-evolution-btn").on("click", function(event){
+                    var $button = $(event.currentTarget);
+                    var pokemonUri = $button.data("evolutionuri");
+
+                    var pokemon = new PokemonApp.Pokemon(pokemonUri);
+                    console.log(pokemon);
+                    pokemon.render();
+                });
+            }
+            else{
+                $(".js-btn-wrapper").empty();
+            }
+
             $(".js-pokemon-modal").modal("show");
         }
     });
