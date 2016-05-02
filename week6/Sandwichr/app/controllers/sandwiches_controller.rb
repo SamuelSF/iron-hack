@@ -1,5 +1,21 @@
 class SandwichesController < ApplicationController
 
+    def add_ingredient
+        sandwich = load_sandwich(params[:id])
+        if sandwich.nil?
+            return
+        end
+        ingredient = Ingredient.find_by(id: params[:ingredient_id])
+        if ingredient.nil?
+            render json: {error: "ingredient not found"}, status: 404
+            return
+        end
+        sandwich.ingredients.push ingredient
+
+        redirect_to "/sandwiches/#{params[:id]}"
+
+    end
+
     def index
         sandwiches = Sandwich.all
         render json: sandwiches
