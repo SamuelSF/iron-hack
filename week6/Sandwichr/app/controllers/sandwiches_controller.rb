@@ -11,7 +11,7 @@ class SandwichesController < ApplicationController
     end
 
     def show
-        load_sandwich(params[:id])
+        sandwich = load_sandwich(params[:id])
         if sandwich.nil?
             return
         end
@@ -54,7 +54,7 @@ class SandwichesController < ApplicationController
             render json: {error: "sandwich not found"}, status: 404
             return
         end
-        return ingredient
+        return sandwich
     end
 
 end
