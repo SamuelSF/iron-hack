@@ -84,3 +84,109 @@ ActionController::RoutingError (No route matches [GET] "/api/tournaments.json"):
 
 
 Started GET "/assets/bootstrap.css.map" for ::1 at 2016-04-27 10:57:08 -0400
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Migrating to CreateTournaments (20160502205233)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "tournaments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160502205233"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+Migrating to CreatePlayers (20160502205420)
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "players" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160502205420"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Migrating to CreateRegistrations (20160502205524)
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "registrations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "player_id" integer, "tournament_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160502205524"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "tournaments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Smash Bros. Tournament"], ["created_at", "2016-05-02 21:12:30.816967"], ["updated_at", "2016-05-02 21:12:30.816967"]]
+  [1m[35m (1.4ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "tournaments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Street Fighter Tournament"], ["created_at", "2016-05-02 21:12:30.821389"], ["updated_at", "2016-05-02 21:12:30.821389"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "tournaments" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Starcraft Tournament"], ["created_at", "2016-05-02 21:12:30.823344"], ["updated_at", "2016-05-02 21:12:30.823344"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Bob"], ["created_at", "2016-05-02 21:12:30.828991"], ["updated_at", "2016-05-02 21:12:30.828991"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Roberto"], ["created_at", "2016-05-02 21:12:30.830847"], ["updated_at", "2016-05-02 21:12:30.830847"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Maria"], ["created_at", "2016-05-02 21:12:30.832463"], ["updated_at", "2016-05-02 21:12:30.832463"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Tod"], ["created_at", "2016-05-02 21:12:30.834067"], ["updated_at", "2016-05-02 21:12:30.834067"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)  [["name", "Emily"], ["created_at", "2016-05-02 21:12:30.835588"], ["updated_at", "2016-05-02 21:12:30.835588"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "players" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Charlotte"], ["created_at", "2016-05-02 21:12:30.837147"], ["updated_at", "2016-05-02 21:12:30.837147"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 1], ["player_id", 1], ["created_at", "2016-05-02 21:12:30.855903"], ["updated_at", "2016-05-02 21:12:30.855903"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 1], ["player_id", 2], ["created_at", "2016-05-02 21:12:30.858519"], ["updated_at", "2016-05-02 21:12:30.858519"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 1], ["player_id", 3], ["created_at", "2016-05-02 21:12:30.861531"], ["updated_at", "2016-05-02 21:12:30.861531"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 1], ["player_id", 4], ["created_at", "2016-05-02 21:12:30.864111"], ["updated_at", "2016-05-02 21:12:30.864111"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 1], ["player_id", 5], ["created_at", "2016-05-02 21:12:30.866426"], ["updated_at", "2016-05-02 21:12:30.866426"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 1], ["player_id", 6], ["created_at", "2016-05-02 21:12:30.868899"], ["updated_at", "2016-05-02 21:12:30.868899"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 2], ["player_id", 1], ["created_at", "2016-05-02 21:12:30.871737"], ["updated_at", "2016-05-02 21:12:30.871737"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 2], ["player_id", 2], ["created_at", "2016-05-02 21:12:30.873902"], ["updated_at", "2016-05-02 21:12:30.873902"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 2], ["player_id", 3], ["created_at", "2016-05-02 21:12:30.876009"], ["updated_at", "2016-05-02 21:12:30.876009"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 2], ["player_id", 4], ["created_at", "2016-05-02 21:12:30.878700"], ["updated_at", "2016-05-02 21:12:30.878700"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 2], ["player_id", 5], ["created_at", "2016-05-02 21:12:30.881241"], ["updated_at", "2016-05-02 21:12:30.881241"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 2], ["player_id", 6], ["created_at", "2016-05-02 21:12:30.883818"], ["updated_at", "2016-05-02 21:12:30.883818"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 3], ["player_id", 1], ["created_at", "2016-05-02 21:12:30.886628"], ["updated_at", "2016-05-02 21:12:30.886628"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 3], ["player_id", 2], ["created_at", "2016-05-02 21:12:30.888820"], ["updated_at", "2016-05-02 21:12:30.888820"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 3], ["player_id", 3], ["created_at", "2016-05-02 21:12:30.890885"], ["updated_at", "2016-05-02 21:12:30.890885"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 3], ["player_id", 4], ["created_at", "2016-05-02 21:12:30.893003"], ["updated_at", "2016-05-02 21:12:30.893003"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["tournament_id", 3], ["player_id", 5], ["created_at", "2016-05-02 21:12:30.895103"], ["updated_at", "2016-05-02 21:12:30.895103"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "registrations" ("tournament_id", "player_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["tournament_id", 3], ["player_id", 6], ["created_at", "2016-05-02 21:12:30.897286"], ["updated_at", "2016-05-02 21:12:30.897286"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mTournament Load (3.4ms)[0m  [1mSELECT "tournaments".* FROM "tournaments"[0m
+  [1m[35mPlayer Load (0.2ms)[0m  SELECT "players".* FROM "players" INNER JOIN "registrations" ON "players"."id" = "registrations"."player_id" WHERE "registrations"."tournament_id" = ?  [["tournament_id", 1]]
+  [1m[36mPlayer Load (0.1ms)[0m  [1mSELECT "players".* FROM "players" INNER JOIN "registrations" ON "players"."id" = "registrations"."player_id" WHERE "registrations"."tournament_id" = ?[0m  [["tournament_id", 2]]
+  [1m[35mPlayer Load (0.1ms)[0m  SELECT "players".* FROM "players" INNER JOIN "registrations" ON "players"."id" = "registrations"."player_id" WHERE "registrations"."tournament_id" = ?  [["tournament_id", 3]]
