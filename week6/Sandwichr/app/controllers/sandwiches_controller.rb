@@ -16,7 +16,7 @@ class SandwichesController < ApplicationController
             return
         end
 
-        render json: sandwich
+        render json: sandwich.to_json(include: :ingredients)
     end
 
     def update
