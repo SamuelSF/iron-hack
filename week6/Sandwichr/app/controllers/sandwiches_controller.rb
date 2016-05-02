@@ -10,6 +10,8 @@ class SandwichesController < ApplicationController
             render json: {error: "ingredient not found"}, status: 404
             return
         end
+        new_calories = sandwich.total_calories + ingredient.calories
+        sandwich.update(total_calories: new_calories)
         sandwich.ingredients.push ingredient
 
         redirect_to "/sandwiches/#{params[:id]}"
