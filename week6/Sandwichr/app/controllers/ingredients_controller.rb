@@ -1,7 +1,13 @@
 class IngredientsController < ApplicationController
+
+    def index
+        ingredients = Ingredient.all
+        if ingredients.length < 1
+            render json: {error: "no ingredients in databse"}, status: 404
+    end
     def create
         ingredient = Ingredient.create(ingredient_params)
-        render json: ingredient
+        render json: ingredient, status: 201
     end
 
     def destroy
@@ -9,7 +15,7 @@ class IngredientsController < ApplicationController
 
         ingredient.destroy
 
-        render json: ingredient
+        render json: ingredient, status: 201
 
     end
 
@@ -18,7 +24,7 @@ class IngredientsController < ApplicationController
         if ingredient.nil?
             return
         end
-        render json: ingredient
+        render json: ingredient, status: 201
     end
 
     private

@@ -14,18 +14,22 @@ class SandwichesController < ApplicationController
         sandwich.update(total_calories: new_calories)
         sandwich.ingredients.push ingredient
 
-        redirect_to "/sandwiches/#{params[:id]}"
+        render json: sandwich.to_json(include: ingredients), status: 201
 
     end
 
     def index
         sandwiches = Sandwich.all
-        render json: sandwiches
+        if sandwiches.length < 1
+            render json: {error: "no sandwiches in database"}, status: 404
+            return
+        end
+        render json: sandwiches, status: 201
     end
 
     def create
         sandwich = Sandwich.create(sandwich_params)
-        render json: sandwich
+        render json: sandwich.to_json(include: :ingredients), status: 201
     end
 
     def show
@@ -34,7 +38,7 @@ class SandwichesController < ApplicationController
             return
         end
 
-        render json: sandwich.to_json(include: :ingredients)
+        render json: sandwich.to_json(include: :ingredients), status: 201
     end
 
     def update
@@ -45,7 +49,7 @@ class SandwichesController < ApplicationController
 
         sandwich.update(sandwich_param)
 
-        render json: sandwich
+        render json: sandwich.to_json(include: :ingredients), status: 201
     end
 
     def destroy
@@ -56,7 +60,7 @@ class SandwichesController < ApplicationController
 
         sandwich.destroy
 
-        render json: sandwich
+        render json: sandwich.to_json(include: :ingredients), status: 201
 
     end
 
