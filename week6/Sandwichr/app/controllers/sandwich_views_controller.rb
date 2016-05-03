@@ -5,7 +5,7 @@ class SandwichViewsController < ApplicationController
 
     def show
         @sandwich = Sandwich.find(params[:id])
-        puts params[:id]
         @ingredients = @sandwich.ingredients
+        @possible_ingredients = Ingredient.all
     end
 end

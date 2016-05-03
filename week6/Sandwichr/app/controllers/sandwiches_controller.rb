@@ -5,16 +5,19 @@ class SandwichesController < ApplicationController
         if sandwich.nil?
             return
         end
-        ingredient = Ingredient.find_by(id: params[:ingredient_id])
+        ingredient = Ingredient.find(params[:ingredient_id])
         if ingredient.nil?
             render json: {error: "ingredient not found"}, status: 404
             return
         end
-        new_calories = sandwich.total_calories + ingredient.calories
-        sandwich.update(total_calories: new_calories)
-        sandwich.ingredients.push ingredient
 
-        render json: sandwich.to_json(include: ingredients), status: 201
+        unless sandwich.ingredients.include? ingredient #is this correct?
+            new_calories = sandwich.total_calories + ingredient.calories
+            sandwich.update(total_calories: new_calories)
+            sandwich.ingredients.push ingredient
+        end
+        render json: sandwich.to_json(include: :ingredients), status: 201
+
 
     end
 
